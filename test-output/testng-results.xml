@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="11" passed="11" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2026-07-03T22:27:43 IST" name="Playwright UI Suite" finished-at="2026-07-03T22:28:47 IST" duration-ms="63613">
+    <groups>
+      <group name="Negative">
+        <method signature="EmptyPasswordTest.verifyEmptyPassword()[pri:0, instance:ui.login.EmptyPasswordTest@53f0a4cb]" name="verifyEmptyPassword" class="ui.login.EmptyPasswordTest"/>
+        <method signature="EmptyUsernameTest.verifyEmptyUsername()[pri:0, instance:ui.login.EmptyUsernameTest@4d722ac9]" name="verifyEmptyUsername" class="ui.login.EmptyUsernameTest"/>
+        <method signature="InvalidLoginTest.verifyInvalidLogin()[pri:0, instance:ui.login.InvalidLoginTest@2320fa6f]" name="verifyInvalidLogin" class="ui.login.InvalidLoginTest"/>
+        <method signature="LockedUserTest.verifyLockedUserLogin()[pri:0, instance:ui.login.LockedUserTest@7a560583]" name="verifyLockedUserLogin" class="ui.login.LockedUserTest"/>
+      </group> <!-- Negative -->
+      <group name="Regression">
+        <method signature="AddProductTest.verifyAddProductToCart()[pri:0, instance:ui.inventory.AddProductTest@37efd131]" name="verifyAddProductToCart" class="ui.inventory.AddProductTest"/>
+        <method signature="InventoryValidationTest.verifyInventoryPage()[pri:0, instance:ui.inventory.InventoryValidationTest@3d97a632]" name="verifyInventoryPage" class="ui.inventory.InventoryValidationTest"/>
+        <method signature="ProductCountTest.verifyProductCount()[pri:0, instance:ui.inventory.ProductCountTest@616fe72b]" name="verifyProductCount" class="ui.inventory.ProductCountTest"/>
+        <method signature="ProductSortTest.verifyProductSorting()[pri:0, instance:ui.inventory.ProductSortTest@7e5d9a50]" name="verifyProductSorting" class="ui.inventory.ProductSortTest"/>
+        <method signature="RemoveProductTest.verifyRemoveProductFromCart()[pri:0, instance:ui.inventory.RemoveProductTest@7e7b159b]" name="verifyRemoveProductFromCart" class="ui.inventory.RemoveProductTest"/>
+        <method signature="EmptyPasswordTest.verifyEmptyPassword()[pri:0, instance:ui.login.EmptyPasswordTest@53f0a4cb]" name="verifyEmptyPassword" class="ui.login.EmptyPasswordTest"/>
+        <method signature="EmptyUsernameTest.verifyEmptyUsername()[pri:0, instance:ui.login.EmptyUsernameTest@4d722ac9]" name="verifyEmptyUsername" class="ui.login.EmptyUsernameTest"/>
+        <method signature="InvalidLoginTest.verifyInvalidLogin()[pri:0, instance:ui.login.InvalidLoginTest@2320fa6f]" name="verifyInvalidLogin" class="ui.login.InvalidLoginTest"/>
+        <method signature="LockedUserTest.verifyLockedUserLogin()[pri:0, instance:ui.login.LockedUserTest@7a560583]" name="verifyLockedUserLogin" class="ui.login.LockedUserTest"/>
+        <method signature="LogoutTest.verifyLogout()[pri:0, instance:ui.login.LogoutTest@77a7cf58]" name="verifyLogout" class="ui.login.LogoutTest"/>
+        <method signature="ValidLoginTest.verifyValidLogin()[pri:0, instance:ui.login.ValidLoginTest@615091b8]" name="verifyValidLogin" class="ui.login.ValidLoginTest"/>
+      </group> <!-- Regression -->
+      <group name="Smoke">
+        <method signature="AddProductTest.verifyAddProductToCart()[pri:0, instance:ui.inventory.AddProductTest@37efd131]" name="verifyAddProductToCart" class="ui.inventory.AddProductTest"/>
+        <method signature="InventoryValidationTest.verifyInventoryPage()[pri:0, instance:ui.inventory.InventoryValidationTest@3d97a632]" name="verifyInventoryPage" class="ui.inventory.InventoryValidationTest"/>
+        <method signature="ProductCountTest.verifyProductCount()[pri:0, instance:ui.inventory.ProductCountTest@616fe72b]" name="verifyProductCount" class="ui.inventory.ProductCountTest"/>
+        <method signature="RemoveProductTest.verifyRemoveProductFromCart()[pri:0, instance:ui.inventory.RemoveProductTest@7e7b159b]" name="verifyRemoveProductFromCart" class="ui.inventory.RemoveProductTest"/>
+        <method signature="LogoutTest.verifyLogout()[pri:0, instance:ui.login.LogoutTest@77a7cf58]" name="verifyLogout" class="ui.login.LogoutTest"/>
+        <method signature="ValidLoginTest.verifyValidLogin()[pri:0, instance:ui.login.ValidLoginTest@615091b8]" name="verifyValidLogin" class="ui.login.ValidLoginTest"/>
+      </group> <!-- Smoke -->
+    </groups>
+    <test started-at="2026-07-03T22:27:43 IST" name="Login Module" finished-at="2026-07-03T22:28:47 IST" duration-ms="63613">
+      <class name="ui.inventory.InventoryValidationTest">
+        <test-method is-config="true" signature="setup()[pri:0, instance:ui.inventory.InventoryValidationTest@3d97a632]" started-at="2026-07-03T22:28:20 IST" name="setup" finished-at="2026-07-03T22:28:22 IST" duration-ms="1621" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="verifyInventoryPage()[pri:0, instance:ui.inventory.InventoryValidationTest@3d97a632]" started-at="2026-07-03T22:28:22 IST" name="verifyInventoryPage" description="Verify Inventory page loads successfully" finished-at="2026-07-03T22:28:25 IST" duration-ms="3153" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyInventoryPage -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:ui.inventory.InventoryValidationTest@3d97a632]" started-at="2026-07-03T22:28:25 IST" name="tearDown" finished-at="2026-07-03T22:28:25 IST" duration-ms="491" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- ui.inventory.InventoryValidationTest -->
+      <class name="ui.login.ValidLoginTest">
+        <test-method is-config="true" signature="setup()[pri:0, instance:ui.login.ValidLoginTest@615091b8]" started-at="2026-07-03T22:27:43 IST" name="setup" finished-at="2026-07-03T22:27:49 IST" duration-ms="5689" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="verifyValidLogin()[pri:0, instance:ui.login.ValidLoginTest@615091b8]" started-at="2026-07-03T22:27:49 IST" name="verifyValidLogin" description="Verify user can login with valid credentials" finished-at="2026-07-03T22:27:53 IST" duration-ms="3597" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyValidLogin -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:ui.login.ValidLoginTest@615091b8]" started-at="2026-07-03T22:27:53 IST" name="tearDown" finished-at="2026-07-03T22:27:53 IST" duration-ms="552" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- ui.login.ValidLoginTest -->
+      <class name="ui.inventory.RemoveProductTest">
+        <test-method is-config="true" signature="setup()[pri:0, instance:ui.inventory.RemoveProductTest@7e7b159b]" started-at="2026-07-03T22:28:36 IST" name="setup" finished-at="2026-07-03T22:28:37 IST" duration-ms="1713" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="verifyRemoveProductFromCart()[pri:0, instance:ui.inventory.RemoveProductTest@7e7b159b]" started-at="2026-07-03T22:28:37 IST" name="verifyRemoveProductFromCart" description="Verify user can remove product from cart" finished-at="2026-07-03T22:28:41 IST" duration-ms="3299" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyRemoveProductFromCart -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:ui.inventory.RemoveProductTest@7e7b159b]" started-at="2026-07-03T22:28:41 IST" name="tearDown" finished-at="2026-07-03T22:28:41 IST" duration-ms="476" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- ui.inventory.RemoveProductTest -->
+      <class name="ui.inventory.ProductSortTest">
+        <test-method is-config="true" signature="setup()[pri:0, instance:ui.inventory.ProductSortTest@7e5d9a50]" started-at="2026-07-03T22:28:41 IST" name="setup" finished-at="2026-07-03T22:28:43 IST" duration-ms="1651" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="verifyProductSorting()[pri:0, instance:ui.inventory.ProductSortTest@7e5d9a50]" started-at="2026-07-03T22:28:43 IST" name="verifyProductSorting" description="Verify all product sorting options" finished-at="2026-07-03T22:28:46 IST" duration-ms="3412" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyProductSorting -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:ui.inventory.ProductSortTest@7e5d9a50]" started-at="2026-07-03T22:28:46 IST" name="tearDown" finished-at="2026-07-03T22:28:47 IST" duration-ms="422" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- ui.inventory.ProductSortTest -->
+      <class name="ui.inventory.ProductCountTest">
+        <test-method is-config="true" signature="setup()[pri:0, instance:ui.inventory.ProductCountTest@616fe72b]" started-at="2026-07-03T22:28:25 IST" name="setup" finished-at="2026-07-03T22:28:27 IST" duration-ms="1749" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="verifyProductCount()[pri:0, instance:ui.inventory.ProductCountTest@616fe72b]" started-at="2026-07-03T22:28:27 IST" name="verifyProductCount" description="Verify product count, names and prices" finished-at="2026-07-03T22:28:30 IST" duration-ms="2923" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyProductCount -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:ui.inventory.ProductCountTest@616fe72b]" started-at="2026-07-03T22:28:30 IST" name="tearDown" finished-at="2026-07-03T22:28:30 IST" duration-ms="427" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- ui.inventory.ProductCountTest -->
+      <class name="ui.login.EmptyPasswordTest">
+        <test-method is-config="true" signature="setup()[pri:0, instance:ui.login.EmptyPasswordTest@53f0a4cb]" started-at="2026-07-03T22:28:08 IST" name="setup" finished-at="2026-07-03T22:28:10 IST" duration-ms="1793" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="verifyEmptyPassword()[pri:0, instance:ui.login.EmptyPasswordTest@53f0a4cb]" started-at="2026-07-03T22:28:10 IST" name="verifyEmptyPassword" description="Verify login without entering password" finished-at="2026-07-03T22:28:13 IST" duration-ms="2885" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyEmptyPassword -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:ui.login.EmptyPasswordTest@53f0a4cb]" started-at="2026-07-03T22:28:13 IST" name="tearDown" finished-at="2026-07-03T22:28:13 IST" duration-ms="308" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- ui.login.EmptyPasswordTest -->
+      <class name="ui.login.LockedUserTest">
+        <test-method is-config="true" signature="setup()[pri:0, instance:ui.login.LockedUserTest@7a560583]" started-at="2026-07-03T22:27:58 IST" name="setup" finished-at="2026-07-03T22:28:00 IST" duration-ms="1740" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="verifyLockedUserLogin()[pri:0, instance:ui.login.LockedUserTest@7a560583]" started-at="2026-07-03T22:28:00 IST" name="verifyLockedUserLogin" description="Verify locked user cannot login" finished-at="2026-07-03T22:28:03 IST" duration-ms="3012" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyLockedUserLogin -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:ui.login.LockedUserTest@7a560583]" started-at="2026-07-03T22:28:03 IST" name="tearDown" finished-at="2026-07-03T22:28:04 IST" duration-ms="501" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- ui.login.LockedUserTest -->
+      <class name="ui.inventory.AddProductTest">
+        <test-method is-config="true" signature="setup()[pri:0, instance:ui.inventory.AddProductTest@37efd131]" started-at="2026-07-03T22:28:30 IST" name="setup" finished-at="2026-07-03T22:28:32 IST" duration-ms="1687" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="verifyAddProductToCart()[pri:0, instance:ui.inventory.AddProductTest@37efd131]" started-at="2026-07-03T22:28:32 IST" name="verifyAddProductToCart" description="Verify user can add a product to cart" finished-at="2026-07-03T22:28:35 IST" duration-ms="3004" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyAddProductToCart -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:ui.inventory.AddProductTest@37efd131]" started-at="2026-07-03T22:28:35 IST" name="tearDown" finished-at="2026-07-03T22:28:36 IST" duration-ms="496" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- ui.inventory.AddProductTest -->
+      <class name="ui.login.InvalidLoginTest">
+        <test-method is-config="true" signature="setup()[pri:0, instance:ui.login.InvalidLoginTest@2320fa6f]" started-at="2026-07-03T22:27:53 IST" name="setup" finished-at="2026-07-03T22:27:55 IST" duration-ms="1750" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="verifyInvalidLogin()[pri:0, instance:ui.login.InvalidLoginTest@2320fa6f]" started-at="2026-07-03T22:27:55 IST" name="verifyInvalidLogin" description="Verify invalid login" finished-at="2026-07-03T22:27:58 IST" duration-ms="2958" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyInvalidLogin -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:ui.login.InvalidLoginTest@2320fa6f]" started-at="2026-07-03T22:27:58 IST" name="tearDown" finished-at="2026-07-03T22:27:58 IST" duration-ms="342" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- ui.login.InvalidLoginTest -->
+      <class name="ui.login.EmptyUsernameTest">
+        <test-method is-config="true" signature="setup()[pri:0, instance:ui.login.EmptyUsernameTest@4d722ac9]" started-at="2026-07-03T22:28:04 IST" name="setup" finished-at="2026-07-03T22:28:05 IST" duration-ms="1818" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="verifyEmptyUsername()[pri:0, instance:ui.login.EmptyUsernameTest@4d722ac9]" started-at="2026-07-03T22:28:05 IST" name="verifyEmptyUsername" description="Verify login without username" finished-at="2026-07-03T22:28:08 IST" duration-ms="2793" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyEmptyUsername -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:ui.login.EmptyUsernameTest@4d722ac9]" started-at="2026-07-03T22:28:08 IST" name="tearDown" finished-at="2026-07-03T22:28:08 IST" duration-ms="307" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- ui.login.EmptyUsernameTest -->
+      <class name="ui.login.LogoutTest">
+        <test-method is-config="true" signature="setup()[pri:0, instance:ui.login.LogoutTest@77a7cf58]" started-at="2026-07-03T22:28:13 IST" name="setup" finished-at="2026-07-03T22:28:15 IST" duration-ms="1802" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="verifyLogout()[pri:0, instance:ui.login.LogoutTest@77a7cf58]" started-at="2026-07-03T22:28:15 IST" name="verifyLogout" description="Verify user can logout successfully" finished-at="2026-07-03T22:28:19 IST" duration-ms="3985" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyLogout -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:ui.login.LogoutTest@77a7cf58]" started-at="2026-07-03T22:28:19 IST" name="tearDown" finished-at="2026-07-03T22:28:20 IST" duration-ms="751" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- ui.login.LogoutTest -->
+    </test> <!-- Login Module -->
+  </suite> <!-- Playwright UI Suite -->
+</testng-results>

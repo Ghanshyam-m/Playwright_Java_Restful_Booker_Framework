@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+  <test thread-count="5" name="testng-ui.xml">
+    <classes>
+      <class name="api.booking.UpdateBookingTest"/>
+      <class name="ui.login.InvalidLoginTest"/>
+      <class name="base.BaseTest"/>
+      <class name="api.base.ApiBaseTest"/>
+      <class name="api.negative.InvalidBookingTest"/>
+      <class name="api.booking.PartialUpdateBookingTest"/>
+      <class name="api.booking.DeleteBookingTest"/>
+      <class name="base.LoginTest"/>
+      <class name="ui.login.ValidLoginTest"/>
+      <class name="api.booking.GetBookingTest"/>
+      <class name="api.booking.CreateBookingTest"/>
+    </classes>
+  </test> <!-- testng-ui.xml -->
+</suite> <!-- Suite -->
