@@ -88,3 +88,72 @@ The framework integrates with:
 for automated build and test execution.
 
 ---
+# 📁 Project Structure
+```text
+Playwright_Java_Restful_Booker_Framework
+│
+├── src
+│   ├── main
+│   │   ├── java
+│   │   │   ├── api
+│   │   │   ├── base
+│   │   │   ├── config
+│   │   │   ├── constants
+│   │   │   ├── listeners
+│   │   │   ├── pages
+│   │   │   ├── utils
+│   │   │   └── factories
+│   │   │
+│   │   └── resources
+│   │       ├── config.properties
+│   │       └── log4j2.xml
+│   │
+│   └── test
+│       ├── java
+│       │   ├── api
+│       │   │   └── booking
+│       │   │
+│       │   └── ui
+│       │       ├── inventory
+│       │       └── login
+│       │
+│       └── resources
+│
+├── allure-results
+├── screenshots
+├── test-output
+│
+├── pom.xml
+├── testng.xml
+├── testng-api.xml
+├── testng-ui.xml
+├── README.md
+└── .gitignore
+```
+## 📂 Folder Description
+
+| Folder/File | Description |
+|-------------|-------------|
+| `src/main/java` | Framework source code |
+| `src/test/java` | UI and API test cases |
+| `pages` | Page Object Model classes |
+| `api` | REST Assured request classes |
+| `utils` | Reusable helper methods |
+| `config` | Configuration management |
+| `listeners` | TestNG listeners |
+| `resources` | Properties and configuration files |
+| `allure-results` | Allure report results |
+| `test-output` | TestNG reports |
+| `pom.xml` | Maven dependencies |
+| `testng.xml` | Master TestNG suite |
+| `.gitignore` | Git ignored files |
+## ✅ Why This Structure?
+
+The framework follows a layered and modular design.
+
+- Separation of UI and API automation
+- Reusable utility classes
+- Easy maintenance
+- Scalable project architecture
+- Enterprise-ready folder organization
+- Supports CI/CD integration
