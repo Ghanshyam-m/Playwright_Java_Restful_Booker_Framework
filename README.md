@@ -1,6 +1,4 @@
 # 🎭 Playwright Java RESTful Booker Framework
-# 🎭 Playwright Java RESTful Booker Framework
-
 ![Java](https://img.shields.io/badge/Java-17-orange)
 ![Playwright](https://img.shields.io/badge/Playwright-Java-green)
 ![REST Assured](https://img.shields.io/badge/REST_Assured-API_Testing-success)
