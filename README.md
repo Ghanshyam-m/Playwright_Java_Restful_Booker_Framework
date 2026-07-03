@@ -1,4 +1,16 @@
 # 🎭 Playwright Java RESTful Booker Framework
+# 🎭 Playwright Java RESTful Booker Framework
+
+![Java](https://img.shields.io/badge/Java-17-orange)
+![Playwright](https://img.shields.io/badge/Playwright-Java-green)
+![REST Assured](https://img.shields.io/badge/REST_Assured-API_Testing-success)
+![TestNG](https://img.shields.io/badge/TestNG-Testing-red)
+![Maven](https://img.shields.io/badge/Maven-Build-blue)
+![GitHub](https://img.shields.io/badge/GitHub-Version_Control-black)
+![Jenkins](https://img.shields.io/badge/Jenkins-CI/CD-red)
+![License](https://img.shields.io/badge/License-MIT-blue)
+
+> A production-ready automation framework for **UI Testing** and **REST API Testing**...
 
 > A production-ready automation framework for **UI Testing** and **REST API Testing** built using **Playwright Java**, **TestNG**, **Maven**, and **REST Assured**, following enterprise automation best practices.
 
