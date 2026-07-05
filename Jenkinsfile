@@ -46,7 +46,6 @@ pipeline {
                 """
             }
         }
-
     }
 
     post {
@@ -55,10 +54,15 @@ pipeline {
 
             junit 'target/surefire-reports/*.xml'
 
+            allure(
+                includeProperties: false,
+                jdk: '',
+                results: [[path: 'target/allure-results']]
+            )
+
             archiveArtifacts artifacts: 'target/**/*.jar', fingerprint: true
 
             cleanWs()
-
         }
 
         success {
