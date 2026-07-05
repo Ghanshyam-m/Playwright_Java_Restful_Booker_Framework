@@ -4,30 +4,69 @@ pipeline {
 
     tools {
         jdk 'JDK21'
-        maven 'Maven3'
+        maven 'MAVEN'
     }
 
     parameters {
 
         choice(
             name: 'BROWSER',
-            choices: ['chromium','firefox','webkit'],
-            description: 'Browser'
+            choices: ['chromium', 'firefox', 'webkit'],
+            description: 'Select browser'
         )
 
         choice(
             name: 'ENV',
-            choices: ['qa','stage','prod'],
-            description: 'Environment'
+            choices: ['qa', 'stage', 'prod'],
+            description: 'Select environment'
         )
 
         booleanParam(
             name: 'HEADLESS',
             defaultValue: true,
-            description: 'Headless Mode'
+            description: 'Run in headless mode'
         )
+    }
+
+    stages {
+
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+
+        stage('Build & Test') {
+            steps {
+                bat """
+                mvn clean verify ^
+                -Dbrowser=%BROWSER% ^
+                -Denv=%ENV% ^
+                -Dheadless=%HEADLESS%
+                """
+            }
+        }
 
     }
 
-  
+    post {
+
+        always {
+
+            junit 'target/surefire-reports/*.xml'
+
+            archiveArtifacts artifacts: 'target/**/*.jar', fingerprint: true
+
+            cleanWs()
+
+        }
+
+        success {
+            echo 'Build completed successfully.'
+        }
+
+        failure {
+            echo 'Build failed.'
+        }
+    }
 }
