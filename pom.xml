@@ -56,6 +56,7 @@
     <groupId>org.testng</groupId>
     <artifactId>testng</artifactId>
     <version>${testng.version}</version>
+    <scope>test</scope>
 </dependency>
 
         <!-- REST Assured -->
@@ -64,6 +65,7 @@
             <artifactId>rest-assured</artifactId>
             <version>${restassured.version}</version>
         </dependency>
+        
 
         <dependency>
             <groupId>io.rest-assured</groupId>
@@ -183,29 +185,86 @@
                 </configuration>
 
             </plugin>
-
-            <!-- Surefire -->
             <plugin>
 
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.5.3</version>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-enforcer-plugin</artifactId>
+    <version>3.5.0</version>
 
-                <configuration>
+    <executions>
 
-                    <suiteXmlFiles>
-                        <suiteXmlFile>${suiteXmlFile}</suiteXmlFile>
-                    </suiteXmlFiles>
+        <execution>
 
-                    <systemPropertyVariables>
-                        <browser>${browser}</browser>
-                        <headless>${headless}</headless>
-                        <env>${env}</env>
-                    </systemPropertyVariables>
+            <id>enforce-java</id>
 
-                </configuration>
+            <goals>
+                <goal>enforce</goal>
+            </goals>
 
-            </plugin>
+            <configuration>
+
+                <rules>
+
+                    <requireJavaVersion>
+                        <version>[21,)</version>
+                    </requireJavaVersion>
+
+                </rules>
+
+            </configuration>
+
+        </execution>
+
+    </executions>
+
+</plugin>
+            <plugin>
+
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-resources-plugin</artifactId>
+    <version>3.3.1</version>
+
+</plugin>
+            <plugin>
+
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-failsafe-plugin</artifactId>
+    <version>3.5.3</version>
+
+</plugin>
+
+           <!-- Surefire Plugin -->
+<plugin>
+
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-surefire-plugin</artifactId>
+    <version>3.5.3</version>
+
+    <configuration>
+
+        <!-- TestNG Suite -->
+        <suiteXmlFiles>
+            <suiteXmlFile>${suiteXmlFile}</suiteXmlFile>
+        </suiteXmlFiles>
+
+        <!-- Runtime Properties -->
+        <systemPropertyVariables>
+
+            <browser>${browser}</browser>
+            <headless>${headless}</headless>
+            <env>${env}</env>
+
+            <!-- Allure Results Folder -->
+            <allure.results.directory>
+                ${project.build.directory}/allure-results
+            </allure.results.directory>
+
+        </systemPropertyVariables>
+
+    </configuration>
+
+</plugin>
+
 
             <!-- Allure -->
             <plugin>
@@ -222,7 +281,33 @@
             </plugin>
 
         </plugins>
+         </build>
+      <profiles>
 
-    </build>
+    <profile>
+        <id>qa</id>
+        <properties>
+            <env>qa</env>
+        </properties>
+    </profile>
+
+    <profile>
+        <id>stage</id>
+        <properties>
+            <env>stage</env>
+        </properties>
+    </profile>
+
+    <profile>
+        <id>prod</id>
+        <properties>
+            <env>prod</env>
+        </properties>
+    </profile>
+
+</profiles>
+
+
+   
 
 </project>
