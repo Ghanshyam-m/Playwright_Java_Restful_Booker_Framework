@@ -1,8 +1,11 @@
 package pages;
 
+import java.nio.file.Paths;
+
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.LoadState;
+import com.microsoft.playwright.options.MouseButton;
 import com.microsoft.playwright.options.WaitForSelectorState;
 
 import factory.BrowserFactory;
@@ -11,9 +14,6 @@ public abstract class BasePage {
 
     protected final Page page;
 
-    /**
-     * Constructor
-     */
     protected BasePage() {
 
         this.page = BrowserFactory.getPage();
@@ -31,33 +31,29 @@ public abstract class BasePage {
     protected void navigate(String url) {
 
         page.navigate(url);
-
-        page.waitForLoadState(LoadState.NETWORKIDLE);
+        waitForPageLoad();
     }
 
     protected void refreshPage() {
 
         page.reload();
-
-        page.waitForLoadState(LoadState.NETWORKIDLE);
+        waitForPageLoad();
     }
 
     protected void goBack() {
 
         page.goBack();
-
-        page.waitForLoadState(LoadState.NETWORKIDLE);
+        waitForPageLoad();
     }
 
     protected void goForward() {
 
         page.goForward();
-
-        page.waitForLoadState(LoadState.NETWORKIDLE);
+        waitForPageLoad();
     }
 
     // ==========================================================
-    // Waits
+    // Wait Methods
     // ==========================================================
 
     protected void waitForPageLoad() {
@@ -65,11 +61,18 @@ public abstract class BasePage {
         page.waitForLoadState(LoadState.NETWORKIDLE);
     }
 
+    protected void waitForURL(String urlPattern) {
+
+        page.waitForURL(urlPattern);
+    }
+
     protected void waitForElement(Locator locator) {
 
         locator.waitFor(
                 new Locator.WaitForOptions()
                         .setState(WaitForSelectorState.VISIBLE));
+
+        locator.scrollIntoViewIfNeeded();
     }
 
     protected void waitForHidden(Locator locator) {
@@ -87,7 +90,9 @@ public abstract class BasePage {
 
         waitForElement(locator);
 
-        locator.click();
+        locator.click(
+                new Locator.ClickOptions()
+                        .setTimeout(10000));
     }
 
     protected void doubleClick(Locator locator) {
@@ -103,8 +108,7 @@ public abstract class BasePage {
 
         locator.click(
                 new Locator.ClickOptions()
-                        .setButton(
-                                com.microsoft.playwright.options.MouseButton.RIGHT));
+                        .setButton(MouseButton.RIGHT));
     }
 
     // ==========================================================
@@ -115,14 +119,8 @@ public abstract class BasePage {
 
         waitForElement(locator);
 
-        locator.fill(text);
-    }
-
-    protected void clear(Locator locator) {
-
-        waitForElement(locator);
-
         locator.clear();
+        locator.fill(text);
     }
 
     protected void appendText(Locator locator, String text) {
@@ -130,6 +128,13 @@ public abstract class BasePage {
         waitForElement(locator);
 
         locator.pressSequentially(text);
+    }
+
+    protected void clear(Locator locator) {
+
+        waitForElement(locator);
+
+        locator.clear();
     }
 
     // ==========================================================
@@ -151,7 +156,7 @@ public abstract class BasePage {
     }
 
     // ==========================================================
-    // Mouse
+    // Mouse Actions
     // ==========================================================
 
     protected void hover(Locator locator) {
@@ -173,14 +178,16 @@ public abstract class BasePage {
     }
 
     // ==========================================================
-    // Getters
+    // Getter Methods
     // ==========================================================
 
     protected String getText(Locator locator) {
 
         waitForElement(locator);
 
-        return locator.textContent().trim();
+        String text = locator.textContent();
+
+        return text == null ? "" : text.trim();
     }
 
     protected String getInputValue(Locator locator) {
@@ -203,6 +210,8 @@ public abstract class BasePage {
 
     protected boolean isVisible(Locator locator) {
 
+        waitForElement(locator);
+
         return locator.isVisible();
     }
 
@@ -213,15 +222,21 @@ public abstract class BasePage {
 
     protected boolean isEnabled(Locator locator) {
 
+        waitForElement(locator);
+
         return locator.isEnabled();
     }
 
     protected boolean isDisabled(Locator locator) {
 
+        waitForElement(locator);
+
         return locator.isDisabled();
     }
 
     protected boolean isChecked(Locator locator) {
+
+        waitForElement(locator);
 
         return locator.isChecked();
     }
@@ -246,9 +261,23 @@ public abstract class BasePage {
     }
 
     // ==========================================================
+    // Screenshot
+    // ==========================================================
+
+    protected void takeScreenshot(String fileName) {
+
+        page.screenshot(
+                new Page.ScreenshotOptions()
+                        .setPath(Paths.get("screenshots", fileName + ".png")));
+    }
+
+    // ==========================================================
     // Utility
     // ==========================================================
 
+    /**
+     * Debug only. Avoid using in production tests.
+     */
     protected void pause(int milliseconds) {
 
         page.waitForTimeout(milliseconds);

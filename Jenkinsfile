@@ -1,31 +1,22 @@
 pipeline {
-
     agent any
 
     tools {
-        jdk 'JDK21'
-        maven 'MAVEN'
+        jdk 'JDK21'          // Change to your configured JDK name
+        maven 'MAVEN'       // Change to your configured Maven name
     }
 
-    parameters {
+    options {
+        timestamps()
+        disableConcurrentBuilds()
+        buildDiscarder(logRotator(
+                numToKeepStr: '20',
+                artifactNumToKeepStr: '20'
+        ))
+    }
 
-        choice(
-            name: 'BROWSER',
-            choices: ['chromium', 'firefox', 'webkit'],
-            description: 'Select browser'
-        )
-
-        choice(
-            name: 'ENV',
-            choices: ['qa', 'stage', 'prod'],
-            description: 'Select environment'
-        )
-
-        booleanParam(
-            name: 'HEADLESS',
-            defaultValue: true,
-            description: 'Run in headless mode'
-        )
+    environment {
+        MAVEN_OPTS = '-Xmx1024m'
     }
 
     stages {
@@ -36,14 +27,35 @@ pipeline {
             }
         }
 
-        stage('Build & Test') {
+        stage('Verify Java & Maven') {
             steps {
-                bat """
-                mvn clean verify ^
-                -Dbrowser=%BROWSER% ^
-                -Denv=%ENV% ^
-                -Dheadless=%HEADLESS%
-                """
+                bat 'java -version'
+                bat 'mvn -version'
+            }
+        }
+
+        stage('Clean Project') {
+            steps {
+                bat 'mvn clean'
+            }
+        }
+
+        stage('Run Tests') {
+            steps {
+                bat 'mvn test'
+            }
+        }
+
+        stage('Package') {
+            steps {
+                bat 'mvn package -DskipTests'
+            }
+        }
+
+        stage('Archive Build Artifact') {
+            steps {
+                archiveArtifacts artifacts: 'target/*.jar',
+                        fingerprint: true
             }
         }
     }
@@ -52,15 +64,63 @@ pipeline {
 
         always {
 
-            junit 'target/surefire-reports/*.xml'
+            echo 'Publishing Test Results...'
+
+            junit(
+                testResults: 'target/surefire-reports/*.xml',
+                allowEmptyResults: true
+            )
 
             allure(
                 includeProperties: false,
                 jdk: '',
-                results: [[path: 'target/allure-results']]
+                results: [[path: 'allure-results']]
             )
 
-            archiveArtifacts artifacts: 'target/**/*.jar', fingerprint: true
+            archiveArtifacts(
+                artifacts: 'allure-report.zip',
+                allowEmptyArchive: true
+            )
+
+            archiveArtifacts(
+                artifacts: 'allure-summary.json',
+                allowEmptyArchive: true
+            )
+
+            archiveArtifacts(
+                artifacts: 'playwright-report/**/*',
+                allowEmptyArchive: true
+            )
+
+            archiveArtifacts(
+                artifacts: 'allure-results/**/*',
+                allowEmptyArchive: true
+            )
+
+            archiveArtifacts(
+                artifacts: 'test-results/**/*',
+                allowEmptyArchive: true
+            )
+
+            archiveArtifacts(
+                artifacts: 'screenshots/**/*',
+                allowEmptyArchive: true
+            )
+
+            archiveArtifacts(
+                artifacts: 'videos/**/*',
+                allowEmptyArchive: true
+            )
+
+            archiveArtifacts(
+                artifacts: 'traces/**/*',
+                allowEmptyArchive: true
+            )
+
+            archiveArtifacts(
+                artifacts: 'logs/**/*',
+                allowEmptyArchive: true
+            )
 
             cleanWs()
         }
@@ -69,8 +129,16 @@ pipeline {
             echo 'Build completed successfully.'
         }
 
+        unstable {
+            echo 'Build completed with unstable test results.'
+        }
+
         failure {
             echo 'Build failed.'
+        }
+
+        aborted {
+            echo 'Build was aborted.'
         }
     }
 }
